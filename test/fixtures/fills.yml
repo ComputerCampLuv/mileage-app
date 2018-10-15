@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price_per_litre: 9.99
+  total_price: 9.99
+  miles_on_trip: 9.99
+  fill_to_neck: false
+  car: one
+
+two:
+  price_per_litre: 9.99
+  total_price: 9.99
+  miles_on_trip: 9.99
+  fill_to_neck: false
+  car: two

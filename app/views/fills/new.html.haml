@@ -1,0 +1,20 @@
+= form_with model: @fill do |f| 
+  
+  .form-group.mt-5
+
+    = f.label :car_id
+    = f.collection_select :car_id, Car.all, :id, :title, {prompt: true}, class: "form-control form-control-lg"
+
+    = f.label :price_per_litre
+    = f.number_field :price_per_litre, step: 0.1, class: "form-control form-control-lg"
+
+    = f.label :total_price
+    = f.number_field :total_price, step: 0.01, class: "form-control form-control-lg"
+
+    = f.label :miles_on_trip
+    = f.number_field :miles_on_trip, step: 0.1, class: "form-control form-control-lg"
+
+    = f.label :tank_filled_completely, for: "fill_fill_to_neck"
+    = f.check_box :fill_to_neck, class: "form-control form-control-lg"
+      
+    = f.submit :add, class: "btn btn-lg btn-block btn-primary mt-4"

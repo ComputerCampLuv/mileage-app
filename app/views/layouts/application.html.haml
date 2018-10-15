@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title Mileage App
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    .container-fluid
+      - flash.each do |name, msg| 
+        = content_tag :div, msg
+      = yield

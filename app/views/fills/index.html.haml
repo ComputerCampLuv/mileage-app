@@ -1,0 +1,15 @@
+%h1.display-1.mb-4 Fill Ups
+
+= link_to 'Fill Up', new_fill_path, class: "btn btn-lg btn-block btn-primary"
+
+- @cars.each do |car| 
+  %h4.display-4= car.title
+
+  %p= car.ppm_to_s
+  %p= car.mpg_to_s
+
+  - car.fills.each do |fill| 
+    %p
+      %strong= fill.total_price
+    %p= fill.ppm_to_s
+    %p= fill.mpg_to_s
