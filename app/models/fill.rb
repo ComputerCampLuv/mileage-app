@@ -2,18 +2,25 @@ class Fill < ApplicationRecord
   belongs_to :car
 
   def ppm_to_s
-    "#{sprintf('%.1f', ppm)} pence per mile"
+    if self.fill_to_neck
+      "#{sprintf('%.1f', ppm)} pence per mile"
+    else
+      "Partial fill - price per mile is undetermined"
+    end
   end
 
   def mpg_to_s
-    "#{sprintf('%.1f', mpg)} miles per gallon"
+    if self.fill_to_neck
+      "#{sprintf('%.1f', mpg)} miles per gallon"
+    else
+      "Partial fill - price per mile is undetermined"
+    end
   end
 
   def gallons
     litres / 4.546
   end
 
-  private
 
   def litres
     self.total_price * 100 / self.price_per_litre

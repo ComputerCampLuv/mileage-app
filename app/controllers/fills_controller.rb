@@ -10,7 +10,7 @@ class FillsController < ApplicationController
   def create
     @fill = Fill.new(fill_params)
 
-    if params[:fill_to_neck] && @fill.save
+    if @fill.save
       flash[:notice] = "Saved!"
       redirect_to root_path
     else

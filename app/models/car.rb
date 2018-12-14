@@ -9,6 +9,29 @@ class Car < ApplicationRecord
     "#{sprintf('%.1f', mpg)} lifetime miles per gallon"
   end
 
+  def fill_ups
+    count = 1
+    fills_hash = {}
+    self.fills.order(:created_at).each_with_index do |fill, index|
+      fill_hash = {}
+      fill_hash[:number_of_fills] = count
+      fill_hash[:ppm] = fill.ppm
+      fill_hash[:mpg] = fill.mpg
+      fills_hash[index] = fill_hash
+
+      fill.fill_to_neck ? count = 1 : count += 1
+      
+    end
+    fills_hash
+  end
+
+  # index
+
+  # fill_count
+  # filled - bool
+  # ppm
+  # mpg
+
   private
 
   def total_spend
@@ -63,5 +86,8 @@ class Car < ApplicationRecord
   def mpg
     total_miles / total_gallons
   end
+
+
+
 
 end
